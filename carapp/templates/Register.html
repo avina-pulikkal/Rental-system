@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <script>
+    function checkpassword(form){
+      psw=form.psw.value;
+      psw1=form.psw1.value;
+      if(psw!=psw1){
+         alert("\npassword did not match: please try again...")
+         return false;
+                  }
+      else{
+        alert("\npassword match:Welcome...")
+         return true;
+      }          
+    }
+
+    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<style>  
+body{
+  background-image: url("/static/assets/img/car1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left;
+  background-size: cover;
+  /* height: 1800px;
+  width: 1000px;
+  /* background-size:0 500px; */
+  padding:20px 455px 100px 400px; 
+}  
+.container {  
+    padding: 50px;  
+  background-color: white; 
+}  
+  
+input[type=text], input[type=password], textarea {  
+  width: 100%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+}  
+input[type=text]:focus, input[type=password]:focus {  
+  background-color: lightgreen;  
+  outline: none;  
+}  
+ div {  
+            padding: 10px 0;  
+         }  
+hr {  
+  border: 1px solid #f1f1f1;  
+  margin-bottom: 25px;  
+}  
+.registerbtn {  
+  background-color: #4CAF50;  
+  color: white;  
+  margin: 0 0 0 25px; 
+  border: #4CAF50;  
+  cursor: pointer;  
+  /* width: 100%;    */
+  opacity: 0.9;  
+  margin: 0;
+                    font-size: 25px;
+                    font-weight: 50px;
+                    line-height: 15px;
+                    font-family: sans-serif;
+                    padding: 10px 45px;
+                    
+}  
+.registerbtn:hover {  
+  opacity: 1;  
+}  
+
+</style>  
+</head>  
+<body>
+<form action="" method="POST" onsubmit="return checkpassword(this)">
+  {% csrf_token %}
+  <div class="container">  
+  <center>  <h1>Registration Form</h1> </center>  
+  <hr>  
+  <label> Firstname </label>   
+<input type="text" name="firstname" id="firstname" placeholder= "Firstname" size="15" required />   
+<label> Middlename: </label>   
+<input type="text" name="middlename" id="middlename" placeholder="Middlename" size="15" required />   
+<label> Lastname: </label>    
+<input type="text" name="lastname" id="lastname" placeholder="Lastname" size="15"required />   
+<div>  
+
+<div>  
+<label>   
+Gender :  
+</label><br>  
+<input type="radio" value="Male" name="gender" checked > Male   
+<input type="radio" value="Female" name="gender"> Female   
+<input type="radio" value="Other" name="gender"> Other  
+  
+</div>  
+<label>   
+Phone :  
+</label>  
+<input type="text" name="phone" id="phone" placeholder="Country Code"  value="+91" size="2"/>   
+  
+Current Address :  
+<textarea cols="80" rows="5" placeholder="Current Address" value="address" name="address" id="address" required>  
+</textarea>  
+ <label for="email"><b>Email</b></label>  
+ <input type="text" placeholder="Enter Email" name="email" id="email" required>  
+  
+    <label for="psw"><b>Password</b></label>  
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>  
+  
+    <label for="psw-repeat"><b>Re-type Password</b></label>  
+    <input type="password" placeholder="Retype Password" name="psw1" id="psw1" required>  
+    <center><button type="submit" class="registerbtn">Register</button>   </center>  
+    </form> 
+</body>  
+</html>  
+
